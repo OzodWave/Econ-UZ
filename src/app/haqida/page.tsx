@@ -18,64 +18,43 @@ const stats = [
 
 const team = [
   {
-    name: "Ozodbek Karimov",
-    role: "Asoschisi va CEO",
-    initials: "OK",
+    name: "Ozodbek Xasanboyev",
+    role: "Asoschisi, CEO & Developer",
+    initials: "OX",
     gradient: "from-indigo-500 to-purple-600",
-    bio: "10+ yillik biznes analytika tajribasi. Avval McKinsey va Deloitte'da maslahatchi bo'lib ishlagan.",
-  },
-  {
-    name: "Jasur Toshmatov",
-    role: "Texnik direktor (CTO)",
-    initials: "JT",
-    gradient: "from-cyan-500 to-blue-600",
-    bio: "Full-stack muhandis, avval Google va Yandex'da ishlagan. Katta hajmli tizimlar mutaxassisi.",
-  },
-  {
-    name: "Nilufar Rahimova",
-    role: "Ma'lumotlar bo'limi boshlig'i",
-    initials: "NR",
-    gradient: "from-pink-500 to-rose-600",
-    bio: "Data Science PhD, statistika va ekonometrika bo'yicha mutaxassis. 50+ ilmiy maqola muallifi.",
-  },
-  {
-    name: "Sardor Aliyev",
-    role: "AI va ML muhandisi",
-    initials: "SA",
-    gradient: "from-emerald-500 to-teal-600",
-    bio: "Machine Learning muhandisi, NLP va vaqt qatorlari prognozlash bo'yicha tajribali.",
+    bio: "EconUz platformasining asoschisi va bosh dasturchisi. O'zbekiston bozor analytikasi sohasida innovatsion yechimlar yaratish ustida ishlaydi. Frontend, backend va AI tizimlarini mustaqil ravishda ishlab chiqadi.",
   },
 ];
 
 const timeline = [
   {
-    date: "2024-yil Q3",
+    date: "2025-yil, Dekabr",
     title: "G'oya tug'ildi",
-    description: "O'zbekiston bozor analytikasi platformasi konsepsiyasi ishlab chiqildi va tadqiqot boshlandi.",
+    description: "O'zbekiston bozor analytikasi platformasi g'oyasi shakllandi. Bozordagi bo'shliq va ehtiyoj chuqur tahlil qilindi.",
     icon: Lightbulb,
   },
   {
-    date: "2025-yil Q1",
-    title: "Prototip ishlab chiqildi",
-    description: "50+ mahsulot kuzatuvi boshlandi. Birinchi foydalanuvchilar bilan sinovlar o'tkazildi.",
+    date: "2026-yil, Yanvar",
+    title: "Tadqiqot va rejalashtirish",
+    description: "Vesper, Expana, DaData va ZoomSelling kabi jahon va mahalliy platformalar o'rganildi. Texnologiya steki tanlandi.",
     icon: Rocket,
   },
   {
-    date: "2025-yil Q3",
-    title: "AI prognozlash moduli",
-    description: "Sun'iy intellekt asosidagi narx bashorat tizimi qo'shildi. Aniqlik 87%+ ga yetdi.",
+    date: "2026-yil, Fevral",
+    title: "Platforma ishlab chiqildi",
+    description: "Frontend to'liq qurildi — 6+ sahifa, Liquid Glass dizayn, 369+ mahsulot, AI prognoz interfeysi, Dashboard.",
     icon: Brain,
   },
   {
-    date: "2026-yil Q1",
-    title: "Rasmiy ishga tushirish",
-    description: "369+ mahsulot, 7 hudud qamrovi bilan platforma rasman ishga tushirildi.",
+    date: "2026-yil, Aprel",
+    title: "Beta versiya ishga tushdi",
+    description: "Platforma Vercel'da deploy qilindi. Birinchi foydalanuvchilar bilan test boshlandi. Real data integratsiyasi boshlanmoqda.",
     icon: Flag,
   },
   {
-    date: "2026-yil Q3",
+    date: "2026-yil, Yoz",
     title: "Kelajak rejalari",
-    description: "Mobil ilova va ochiq API rejalashtirilmoqda. Hamkorlik dasturi boshlanadi.",
+    description: "Uzum va Yandex Market real-time analytics, AI prognozlash moduli, mobil ilova va ochiq API rejalashtirilmoqda.",
     icon: Smartphone,
   },
 ];
@@ -83,7 +62,7 @@ const timeline = [
 export default function HaqidaPage() {
   const { ref: missionRef, inView: missionInView } = useInView(0.15);
   const { ref: statsRef, inView: statsInView } = useInView(0.15);
-  const { ref: teamRef, inView: teamInView } = useInView(0.1);
+  const { ref: teamRef, inView: teamInView } = useInView(0.15);
   const { ref: timelineRef, inView: timelineInView } = useInView(0.1);
 
   return (
@@ -135,7 +114,8 @@ export default function HaqidaPage() {
                 EconUz — O&apos;zbekiston bozorining birinchi real vaqt analytika platformasi.
                 Biz bozor narxlari, trendlar va AI bashoratlarini bir joyga to&apos;plab,
                 biznes egalari, tadbirkorlar va oddiy fuqarolar uchun qulay va tushunarli
-                shaklda taqdim etamiz.
+                shaklda taqdim etamiz. Maqsadimiz — har bir o&apos;zbekistonlik o&apos;z biznes
+                qarorlarini aniq ma&apos;lumotlarga asoslab qabul qila olishi.
               </p>
             </div>
           </motion.section>
@@ -167,7 +147,7 @@ export default function HaqidaPage() {
             ))}
           </motion.section>
 
-          {/* Team */}
+          {/* Founder */}
           <motion.section
             ref={teamRef}
             initial={{ opacity: 0, y: 18 }}
@@ -176,29 +156,29 @@ export default function HaqidaPage() {
             className="mb-20"
           >
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground dark:text-white text-center mb-10">
-              Jamoamiz
+              Asoschisi
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex justify-center">
               {team.map((member, i) => (
                 <motion.div
                   key={member.name}
                   initial={{ opacity: 0, y: 16 }}
                   animate={teamInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: i * 0.1, duration: 0.35 }}
-                  className="glass-card p-6 text-center hover:-translate-y-1 transition-transform"
+                  className="glass-card p-8 sm:p-10 text-center max-w-md w-full hover:-translate-y-1 transition-transform"
                 >
                   <div
-                    className={`inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br ${member.gradient} mb-4`}
+                    className={`inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br ${member.gradient} mb-5`}
                   >
-                    <span className="text-white font-heading font-bold text-xl">
+                    <span className="text-white font-heading font-bold text-2xl">
                       {member.initials}
                     </span>
                   </div>
-                  <h3 className="font-heading text-lg font-bold text-foreground dark:text-white">
+                  <h3 className="font-heading text-xl font-bold text-foreground dark:text-white">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-accent font-medium mt-1">{member.role}</p>
-                  <p className="text-sm text-muted mt-3 leading-relaxed">{member.bio}</p>
+                  <p className="text-sm text-accent font-semibold mt-2">{member.role}</p>
+                  <p className="text-sm text-muted mt-4 leading-relaxed">{member.bio}</p>
                 </motion.div>
               ))}
             </div>
